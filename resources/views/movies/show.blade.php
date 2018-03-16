@@ -1,3 +1,6 @@
+@extends('layouts/app')
+
+@section('content')
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -65,34 +68,15 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                        <a href="{{ route('movies.index')}}">Filmer</a>
-
-                    @else
-                        <a href="{{ route('movies.index')}}">Filmer</a>
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Johan och Mikas IMDB clone
-                </div>
-
-                <!-- <div class="links">
-                  <div class="title m-b-md">
-                    <a href="{{route('movies.index')}}">bläddra bland filmer</a>
-                    </div> -->
-
-
-                </div>
-            </div>
-        </div>
+ <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{$movie->posterpicture}}" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">{{$movie->title}}</p>
+    <p class="card-text">{{$movie->desctiption}}</p>
+  </div>
+</div>
     </body>
+
 </html>
+<a href="{{route('movies.index')}}">Tillbaka</a>
+@endsection
