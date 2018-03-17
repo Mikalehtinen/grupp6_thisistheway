@@ -5,16 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">user dashboard for @foreach($users as $user) <strong>{{$user->email}}</strong> @endforeach</div>
-
+                <div class="card-header">
+                  <p>user dashboard for user {{Auth::user()->email}}</p>
+                   </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in as user @foreach($users as $user) {{$user->name}} @endforeach
+                     this is the user dashboard for {{Auth::user()->name}}
                 </div>
             </div>
         </div>

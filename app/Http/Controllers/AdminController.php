@@ -29,4 +29,9 @@ class AdminController extends Controller
         $admins = Admin::get();
         return view('admin', ['admins' => $admins]);
     }
+
+    public function show(Admin $admin)
+    {
+      return view('admin', ['admin' => $admin]);
+    }
 }

@@ -15,7 +15,6 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -26,5 +25,10 @@ class HomeController extends Controller
         // return view('home');
         $users = User::get();
         return view('home', ['users' => $users]);
+    }
+
+    public function show(User $user)
+    {
+      return view('home', ['user' => $user]);
     }
 }

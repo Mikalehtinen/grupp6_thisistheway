@@ -6,14 +6,21 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-
-            </div>
+                  Information about {{$director->name}}
+                   </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
+                    <strong> description: </strong> {{$director->description}}
+
+
+                    <br>
+                    <a href="{{route('movies.index')}}">Tillbaka </a>
+                    <br>
+
                 </div>
             </div>
         </div>
