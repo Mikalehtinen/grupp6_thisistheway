@@ -71,14 +71,26 @@
   <img class="card-img-top" src="{{$movie->posterpicture}}" alt="Card image cap">
   <div class="card-body">
     <p class="card-text">{{$movie->title}}</p>
+    <p class="card-text">Rating: @foreach($movie->ratings as $rating){{$rating->rating}}/5 @endforeach<small class="text-muted"></p>
     <p class="card-text">{{$movie->desctiption}}</p>
-    <p class="card-text">Director: <a href="{{route('directors.show', ['director' => $movie->director->id])}}"> {{$movie->director->name}}</a></p> 
+    <p class="card-text">Director: <a href="{{route('directors.show', ['director' => $movie->director->id])}}"> {{$movie->director->name}}</a></p>
     <p class="card-text">Actors playing in this movie: <br>@foreach($movie->actors as $actor)
-    <li><a href="{{route('actors.show', ['actor' => $actor->id])}}">{{$actor->name}}<br> @endforeach</li></p>
+    <li><a href="{{route('actors.show', ['actor' => $actor->id])}}">{{$actor->name}}<br> </li></a>@endforeach</p>
+  </div>
   </div>
 
-</div>
-    </body>
+  <form action="/action_page.php">
+ @auth
+  <div class="form-group">
+    <label for="email">Rating</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <button type="submit" class="btn btn-default">Submit rating</button>
+  @else
+  <strong>login to rate</strong>
+  @endif
+</form>
+</body>
 
 </html>
 <a href="{{route('movies.index')}}">Tillbaka</a>

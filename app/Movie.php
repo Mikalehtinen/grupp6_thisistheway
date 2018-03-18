@@ -14,6 +14,11 @@ class Movie extends Model
   {
     return $this->belongsToMany('App\Actor');
   }
+  function ratings()
+  {
+    return $this->hasMany('App\Rating');
+  }
+
   function director()
   {
     return $this->belongsTo('App\Director');

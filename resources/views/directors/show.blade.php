@@ -15,8 +15,6 @@
                         </div>
                     @endif
                     <strong> description: </strong> {{$director->description}}
-
-
                     <br>
                     <a href="{{route('movies.index')}}">Tillbaka </a>
                     <br>

@@ -15,6 +15,9 @@
                         </div>
                     @endif
                      this is the user dashboard for {{Auth::user()->name}}
+                     <br>
+                     movies you've rated:
+                     <br>
                 </div>
             </div>
         </div>
