@@ -12,9 +12,43 @@ class ActorController extends Controller
       $actors = Actor::get();
       return view('actors/index', ['actors' => $actors]);
     }
+    public function create()
+    {
+      //refererar till create.blade.php, skickar det formuläret till store nedan.
+        return view('actors/create');
+    }
+
+    public function store(Request $request)
+    {
+        $actor_name = $request->input('name');
+        $actor_description = $request->input('description');
+
+        $actor = new Actor();
+        $actor->name = $actor_name;
+        $actor->description = $actor_description;
+        $actor->save();
+        return redirect()->route('actors.index');
+    }
 
     public function show(Actor $actor)
     {
         return view('actors/show', ['actor' => $actor]);
+    }
+
+    public function edit(Actor $actor)
+    {
+      return view('actors/edit', ['actor' => $actor]);
+    }
+
+    public function update(Request $request, Actor $actor)
+    {
+      $actor_name = $request->input('name');
+      $actor_description = $request->input('description');
+
+      $actor->name = $actor_name;
+      $actor->description = $actor_description;
+      $actor->save();
+
+      return redirect()->route('actors.show', ['actor' => $actor->id]);
     }
 }

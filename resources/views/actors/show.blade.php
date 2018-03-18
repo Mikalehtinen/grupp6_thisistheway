@@ -18,7 +18,8 @@
 
                     {{$actor->description}}
                     <br>
-                    <a href="{{route('movies.index')}}">tillbaka till filmer</a>
+                    <a href="{{route('movies.index')}}">tillbaka till filmer</a><br>
+                    <a href="{{route('actors.edit', ['actor' => $actor->id])}}">ändra information om skådespelaren </a>
                 </div>
             </div>
         </div>

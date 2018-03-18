@@ -18,15 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-//test route for user show.
+
 Route::get('/home/{user}', 'HomeController@show')->name('home.show');
 Route::get('/home/{rating}', 'RatingController@show')->name('userratings.show');
-//test route för movie index.
+
 Route::get('/movies','MovieController@index')->name('movies.index');
 Route::post('/movies','MovieController@store')->name('movies.store');
 Route::get('/movies/create', 'MovieController@create')->name('movies.create');
-
-//test route för movie show.
 Route::get('/movies/{movie}', 'MovieController@show')->name('movies.show');
 Route::get('/movies/{movie}/edit', 'MovieController@edit')->name('movies.edit');
 Route::put('/movies/{movie}', 'MovieController@update')->name('movies.update');
@@ -34,10 +32,14 @@ Route::put('/movies/{movie}', 'MovieController@update')->name('movies.update');
 Route::get('/movies/{rating}', 'RatingController@show')->name('rating.show');
 Route::get('/movies/{rating}', 'RatingController@index')->name('rating.index');
 
-
-//test route for actor show.
+Route::get('/actors', 'ActorController@index')->name('actors.index');
+Route::post('/actors', 'ActorController@store')->name('actors.store');
+Route::get('/actors/create', 'ActorController@create')->name('actors.create');
 Route::get('/actors/{actor}', 'ActorController@show')->name('actors.show');
-//test route for director show.
+Route::get('/actors/{actor}/edit', 'ActorController@edit')->name('actors.edit');
+Route::put('/actors/{actor}', 'ActorController@update')->name('actors.update');
+
+
 Route::get('/directors/{director}', 'DirectorController@show')->name('directors.show');
 
 
