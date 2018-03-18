@@ -23,8 +23,14 @@ Route::get('/home/{user}', 'HomeController@show')->name('home.show');
 Route::get('/home/{rating}', 'RatingController@show')->name('userratings.show');
 //test route för movie index.
 Route::get('/movies','MovieController@index')->name('movies.index');
+Route::post('/movies','MovieController@store')->name('movies.store');
+Route::get('/movies/create', 'MovieController@create')->name('movies.create');
+
 //test route för movie show.
 Route::get('/movies/{movie}', 'MovieController@show')->name('movies.show');
+Route::get('/movies/{movie}/edit', 'MovieController@edit')->name('movies.edit');
+Route::put('/movies/{movie}', 'MovieController@update')->name('movies.update');
+
 Route::get('/movies/{rating}', 'RatingController@show')->name('rating.show');
 Route::get('/movies/{rating}', 'RatingController@index')->name('rating.index');
 

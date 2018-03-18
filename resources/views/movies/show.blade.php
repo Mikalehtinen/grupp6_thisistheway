@@ -90,6 +90,7 @@
   <strong>login to rate</strong>
   @endif
 </form>
+<p> <a href="{{route('movies.edit', ['movie' => $movie->id])}}">ändra film </a></p>
 </body>
 
 </html>

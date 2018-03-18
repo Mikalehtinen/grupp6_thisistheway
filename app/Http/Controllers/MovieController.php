@@ -37,15 +37,23 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        $product_name = $request->input('name');
-        $product_price = $request->input('price');
+        $movie_title = $request->input('title');
+        $movie_desctiption = $request->input('desctiption');
+        $movie_runtime = $request->input('runtime');
+        $movie_releasedate = $request->input('releasedate');
+        $movie_posterpicture = $request->input('posterpicture');
+        $movie_directorid = $request->input('director_id');
 
-        $product = new Product();
-        $product->name = $product_name;
-        $product->price = $product_price;
-        $product->save();
+        $movie = new Movie();
+        $movie->title = $movie_title;
+        $movie->desctiption = $movie_desctiption;
+        $movie->runtime = $movie_runtime;
+        $movie->releasedate = $movie_releasedate;
+        $movie->posterpicture = $movie_posterpicture;
+        $movie->director_id = $movie_directorid;
+        $movie->save();
 
-        return redirect()->route('products.index');
+        return redirect()->route('movies.index');
     }
 
     /**
@@ -65,9 +73,9 @@ class MovieController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Movie $movie)
     {
-        return view('products/edit' , ['product' => $product]);
+        return view('movies/edit' , ['movie' => $movie]);
     }
 
     /**
@@ -77,16 +85,26 @@ class MovieController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Movie $movie)
     {
-        $product_name = $request->input('name');
-        $product_price = $request->input('price');
 
-        $product->name = $product_name;
-        $product->price = $product->price;
-        $product->save();
+      $movie_title = $request->input('title');
+      $movie_desctiption = $request->input('desctiption');
+      $movie_runtime = $request->input('runtime');
+      $movie_releasedate = $request->input('releasedate');
+      $movie_posterpicture = $request->input('posterpicture');
+      $movie_directorid = $request->input('director_id');
 
-        return redirect()->route('products.show', ['product' => $product->id]);
+      $movie->title = $movie_title;
+      $movie->desctiption = $movie_desctiption;
+      $movie->runtime = $movie_runtime;
+      $movie->releasedate = $movie_releasedate;
+      $movie->posterpicture = $movie_posterpicture;
+      $movie->director_id = $movie_directorid;
+      $movie->save();
+
+      return redirect()->route('movies.show', ['movie' => $movie->id]);
+
     }
 
     /**
@@ -95,7 +113,7 @@ class MovieController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Movie $movie)
     {
         //
     }
