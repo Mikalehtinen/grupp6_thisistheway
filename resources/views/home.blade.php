@@ -15,6 +15,8 @@
                         </div>
                     @endif
                      this is the user dashboard for {{Auth::user()->name}}
+
+
                        <a href="{{route('directors.create')}}">Lägg till regissör</a><br>
                        <a href="{{route('actors.create')}}">Lägg till skådespelare</a><br>
 

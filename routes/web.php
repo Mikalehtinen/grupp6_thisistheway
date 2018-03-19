@@ -20,7 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home/{user}', 'HomeController@show')->name('home.show');
+Route::post('/home', 'RatingController@store')->name('ratings.store');
 Route::get('/home/{rating}', 'RatingController@show')->name('userratings.show');
+
 
 Route::get('/movies','MovieController@index')->name('movies.index');
 Route::post('/movies','MovieController@store')->name('movies.store');
@@ -31,6 +33,7 @@ Route::put('/movies/{movie}', 'MovieController@update')->name('movies.update');
 
 Route::get('/movies/{rating}', 'RatingController@show')->name('rating.show');
 Route::get('/movies/{rating}', 'RatingController@index')->name('rating.index');
+
 
 Route::get('/actors', 'ActorController@index')->name('actors.index');
 Route::post('/actors', 'ActorController@store')->name('actors.store');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Movie;
+use App\Rating;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -16,6 +17,7 @@ class MovieController extends Controller
     {
       $movies = Movie::get();
       return view('movies/index', ['movies' => $movies]);
+
     }
 
     /**
@@ -64,6 +66,9 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
+        $movie = Movie::find($movie->id);
+        $movie->ratings = $movie->ratings()->avg('rating');
+        $movie->count = $movie->ratings()->count('rating');
         return view('movies/show',['movie' => $movie]);
     }
 
@@ -75,6 +80,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
+
         return view('movies/edit' , ['movie' => $movie]);
     }
 
