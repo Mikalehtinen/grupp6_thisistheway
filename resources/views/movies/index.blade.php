@@ -33,6 +33,14 @@
 									<th>Description</th>
 									<td>{{$movie->desctiption}}</td>
 								</tr>
+                <tr>
+									<th>Director</th>
+									<td><a href="{{route('directors.show', ['director' => $movie->director->id])}}"> {{$movie->director->name}} </a></td>
+								</tr>
+                <tr>
+                  <th>Actors</th>
+                  <td>@foreach($movie->actors as $actor)<a href="{{route('actors.show', ['actor'=>$actor->id])}}">{{$actor->name}}<br> </a>@endforeach</td>
+                </tr>
 							</tbody>
 						</table>
               <a href="{{route('movies.show', ['movie' => $movie->id])}}" class="btn btn-info" role="Button">View Movie</a>

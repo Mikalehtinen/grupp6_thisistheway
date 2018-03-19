@@ -18,12 +18,10 @@
 									<th>Release date</th>
 									<td>{{$movie->releasedate}}</td>
 								</tr>
-                @foreach($movie->genres as $genre)
 								<tr>
 									<th>Genre</th>
-									<td>{{$genre->name}}</td>
+									<td>@foreach($movie->genres as $genre)<strong>{{$genre->name}}</strong>, @endforeach</td>
 								</tr>
-                  @endforeach
                   <tr>
   									<th>Rating</th>
   									<td>{{$movie->ratings}} /5</td>
@@ -39,6 +37,14 @@
                 <tr>
                   <th>Description</th>
                   <td>{{$movie->desctiption}}</td>
+                </tr>
+                <tr>
+                  <th>Director</th>
+                  <td><a href="{{route('directors.show', ['director' => $movie->director->id])}}"> {{$movie->director->name}} </a></td>
+                </tr>
+                <tr>
+                  <th>Actors</th>
+                  <td>@foreach($movie->actors as $actor)<a href="{{route('actors.show', ['actor'=>$actor->id])}}">{{$actor->name}}<br> </a>@endforeach</td>
                 </tr>
 							</tbody>
 						</table>
