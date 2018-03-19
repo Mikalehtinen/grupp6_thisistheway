@@ -12,7 +12,8 @@
                   Method Illuminate\Auth\SessionGuard::admin does not exist.
                   keffa länkar för admin dashboard:<br>
                   <a href="{{route('movies.create')}}">lägg till film</a><br>
-                  <a href="{{route('actors.create')}}">Lägg till skådespelare</a>
+                  <a href="{{route('actors.create')}}">Lägg till skådespelare</a><br>
+                  
 
             </div>
                 <div class="card-body">

@@ -39,8 +39,12 @@ Route::get('/actors/{actor}', 'ActorController@show')->name('actors.show');
 Route::get('/actors/{actor}/edit', 'ActorController@edit')->name('actors.edit');
 Route::put('/actors/{actor}', 'ActorController@update')->name('actors.update');
 
-
+Route::get('/directors', 'DirectorController@index')->name('directors.index');
+Route::post('/directors', 'DirectorController@store')->name('directors.store');
+Route::get('/directors/create', 'DirectorController@create')->name('directors.create');
 Route::get('/directors/{director}', 'DirectorController@show')->name('directors.show');
+Route::get('/directors/{director}/edit', 'DirectorController@edit')->name('directors.edit');
+Route::put('/directors/{director}', 'DirectorController@update')->name('directors.update');
 
 
 //gör en grupp med prefixet admin, så slipper man skriva /admin/login hela tiden.
