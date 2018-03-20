@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware('auth:admin', ['except' => ['index', 'show']]);
+    }
     public function index()
     {
       $genre = Genre::get();

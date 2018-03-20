@@ -6,17 +6,15 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-          
+
                   <h1>admin dashboard</h1>
                   <p>här är fortf ett fel med admin. </p>
                   <p>"Auth::admin()->name" retunerar ett felmeddelande </p>
                   Method Illuminate\Auth\SessionGuard::admin does not exist.
                   keffa länkar för admin dashboard:<br>
 
-                  <a href="{{route('movies.create')}}">lägg till film</a><br>
-                  <a href="{{route('actors.create')}}">Lägg till skådespelare</a><br>
-                  
-
+                  <a href="{{route('directors.create')}}" class="btn btn-success" role="Button">Lägg till regissör</a><br><br>
+                  <a href="{{route('actors.create')}}" class="btn btn-success" role="Button">Lägg till skådespelare</a><br>
             </div>
                 <div class="card-body">
                     @if (session('status'))

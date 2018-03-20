@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Rating;
+use App\Movie;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,13 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return view('home');
         $users = User::get();
         return view('home', ['users' => $users]);
     }
 
     public function show(User $user)
     {
+      $user = User::find($user->id);
+
+      $user->ratings = $user->ratings()->avg('rating');
+      $user->count = $user->ratings()->count('rating');
+      $user->select = $user->ratings()->select('rating');
+      $user->sum = $user->ratings()->sum('rating');
+
       return view('home', ['user' => $user]);
     }
 }
