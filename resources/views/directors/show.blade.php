@@ -1,33 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                  Information about {{$director->name}}
-                   </div>
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <strong> description: </strong> {{$director->description}}
-                    <br><br>
-                    {{$director->name}} har regiserat:
-                    <ul>
-                      @foreach($director->movies as $movie)
-                      <li><a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}}</li>
-                      @endforeach
-                    </ul>
-                    <a href="{{route('movies.index')}}">Tillbaka </a>
-                    <br>
 
-                </div>
-            </div>
-        </div>
+<div class="container">
+  <div class="card">
+    <div class="card-header bg-dark text-light">
+      <h5 class="card-title">{{$director->name}}</h5>
     </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th>Director: </th>
+                <td><a href="{{route('directors.show', ['director' => $director->id])}}">{{$director->name}}</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>{{$director->description}}</td>
+              </tr>
+              <tr>
+                <th>Movies directed</th>
+                <td>@foreach($director->movies as $movie)<a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}} ,@endforeach</td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="{{route('directors.edit', ['director' => $director->id])}}" class ="btn btn-success" role="Button">Redigera</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
