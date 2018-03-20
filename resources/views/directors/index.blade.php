@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container">
+<a href="{{route('directors.create')}}" class="btn btn-primary" role="Button">Add director </a>
+</div>
   @foreach($directors as $director)
   <div class="container">
     <div class="card">
