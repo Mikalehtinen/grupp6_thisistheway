@@ -15,7 +15,8 @@ class ActorController extends Controller
     public function index()
     {
       $actors = Actor::get();
-      return view('actors/index');
+      return view('actors/index' , ['actors' => $actors]);
+
     }
 
     public function create()
@@ -38,7 +39,7 @@ class ActorController extends Controller
 
     public function show(Actor $actor)
     {
-        return view('actors/show');
+        return view('actors/show' , ['actor' => $actor]);
     }
 
     public function edit(Actor $actor)
