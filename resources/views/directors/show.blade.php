@@ -27,6 +27,7 @@
             </tbody>
           </table>
           <a href="{{route('directors.edit', ['director' => $director->id])}}" class ="btn btn-success" role="Button">Redigera</a>
+          <a href="{{route('directors.index')}}" class="btn btn-danger" role="Button">Tillbaka</a><br><br>
         </div>
       </div>
     </div>

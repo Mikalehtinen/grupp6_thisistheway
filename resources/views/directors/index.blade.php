@@ -6,17 +6,13 @@
   <div class="container">
     <div class="card">
       <div class="card-header bg-dark text-light">
-        <h5 class="card-title">{{$director->name}}</h5>
+        <h5 class="card-title"><a href="{{route('directors.show', ['director' => $director->id])}}">{{$director->name}}</a></h5>
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-md-8">
             <table class="table table-striped">
               <tbody>
-                <tr>
-                  <th>Director: </th>
-                  <td><a href="{{route('directors.show', ['director' => $director->id])}}">{{$director->name}}</td>
-                </tr>
                 <tr>
                   <th>Description</th>
                   <td>{{$director->description}}</td>
