@@ -36,6 +36,14 @@ Route::post('/ratings', 'RatingController@store')->name('ratings.store');
 Route::get('/movies/show', 'RatingController@create')->name('rating.create');
 Route::get('/movies/{rating}', 'RatingController@show')->name('rating.show');
 
+Route::get('/genres', 'GenreController@index')->name('genres.index');
+Route::post('/genres', 'GenreController@store')->name('genres.store');
+Route::get('/genres/create', 'GenreController@create')->name('genres.create');
+Route::get('/genres/{genre}', 'GenreController@show')->name('genres.show');
+Route::get('/genres/{genre}/edit', 'GenreController@edit')->name('genres.edit');
+Route::put('/genres/{genre}', 'GenreController@update')->name('genres.update');
+
+
 Route::get('/actors', 'ActorController@index')->name('actors.index');
 Route::post('/actors', 'ActorController@store')->name('actors.store');
 Route::get('/actors/create', 'ActorController@create')->name('actors.create');

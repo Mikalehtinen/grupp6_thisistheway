@@ -72,13 +72,13 @@
                         <a href="{{route('actors.index')}}">Skådespelare</a>
                         <a href="{{route('directors.index')}}">Regisörer</a>
                         <a href="{{ route('movies.index')}}">Filmer</a>
-                        <a href="{{ route('movies.index')}}">Filmer</a>
-                        <a href="#">Genres</a>
+                        <a href="{{ route('genres.index')}}">Genres</a>
                         <a href="{{ url('/home') }}">Dashboard</a>
                     @else
                         <a href="{{route('actors.index')}}">Skådespelare</a>
                         <a href="{{route('directors.index')}}">Regisörer</a>
                         <a href="{{ route('movies.index')}}">Filmer</a>
+                        <a href="{{ route('genres.index')}}">Genres</a>
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
