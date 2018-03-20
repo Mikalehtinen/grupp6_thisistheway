@@ -14,8 +14,7 @@
                         </div>
                     @endif
                      this is the user dashboard for {{Auth::user()->name}}<br>
-                       <a href="{{route('directors.create')}}" class="btn btn-success" role="Button">Lägg till regissör</a><br><br>
-                       <a href="{{route('actors.create')}}" class="btn btn-success" role="Button">Lägg till skådespelare</a><br>
+
                      <br>
                      You have been giving rating to <strong>{{Auth::user()->rating->count()}}</strong> diffrent movies.<br>
                      movies you've rated:<br>

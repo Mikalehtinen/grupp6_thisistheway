@@ -48,33 +48,39 @@
                 </tr>
 							</tbody>
 						</table>
-            @auth
+
             <a href="#" class ="btn btn-success" role="Button">Add to library</a>
             <a href="{{route('movies.edit', ['movie' => $movie->id])}}" class="btn btn-info" role="Button">Edit Movie</a>
             <a href="{{route('movies.index')}}" class ="btn btn-danger" role="Button">Tillbaka</a>
-            @else
-            <a href="{{route('movies.index')}}" class ="btn btn-danger" role="Button">Tillbaka</a>
-            @endif
-
 					</div>
 				</div>
 
-        <form action="/action_page.php">
+
        @auth
        <p> betygsätt film: {{$movie->title}}</p>
        <form method="POST" action="{{route('ratings.store')}}">
        @csrf
        <input type="hidden" name="_method" value="POST"/>
-         <div class="form-group">
-         <input type="text" name="rating" class="form-control" placeholder="Rating 1-5"/>
-         <br>
+
+			 <div class="form-group">
+		 <input type="hidden" name="user_id" value="{{Auth::user()->id}}" class="form-control"/>
+		 </div>
+
+			 <div class="form-group">
+		 <input type="hidden" name="movie_id" value="{{$movie->id}}" class="form-control"/>
+		 </div>
+
+		 <div class="form-group">
+		 <input type="text" name="rating" class="form-control" placeholder="Rating 1-5" required/>
+		 <br>
+
           <input type="submit" class="btn brn-success" value="betygsätt"/>
            </div>
              </form>
         @else
           <strong>You have to be logged in in order to rate the movie</strong>
         @endif
-		</div>
+
 
 	</div>
 @endsection

@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('/home/{user}', 'HomeController@show')->name('home.show');
-Route::post('/home', 'RatingController@store')->name('ratings.store');
 Route::get('/home/{rating}', 'RatingController@show')->name('userratings.show');
 
 
@@ -31,9 +31,10 @@ Route::get('/movies/{movie}', 'MovieController@show')->name('movies.show');
 Route::get('/movies/{movie}/edit', 'MovieController@edit')->name('movies.edit');
 Route::put('/movies/{movie}', 'MovieController@update')->name('movies.update');
 
-Route::get('/movies/{rating}', 'RatingController@show')->name('rating.show');
 Route::get('/movies/{rating}', 'RatingController@index')->name('rating.index');
-
+Route::post('/movies', 'RatingController@store')->name('ratings.store');
+Route::get('/movies/show', 'RatingController@create')->name('rating.create');
+Route::get('/movies/{rating}', 'RatingController@show')->name('rating.show');
 
 Route::get('/actors', 'ActorController@index')->name('actors.index');
 Route::post('/actors', 'ActorController@store')->name('actors.store');

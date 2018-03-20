@@ -15,7 +15,13 @@
                         </div>
                     @endif
                     <strong> description: </strong> {{$director->description}}
-                    <br>
+                    <br><br>
+                    {{$director->name}} har regiserat:
+                    <ul>
+                      @foreach($director->movies as $movie)
+                      <li><a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}}</li>
+                      @endforeach
+                    </ul>
                     <a href="{{route('movies.index')}}">Tillbaka </a>
                     <br>
 

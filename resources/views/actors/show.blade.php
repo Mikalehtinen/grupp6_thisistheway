@@ -15,11 +15,17 @@
                         </div>
                     @endif
                     <strong> Description </strong> <br><br>
-
+                    <strong>Description:</strong>
                     {{$actor->description}}
-                    <br>
-                    <a href="{{route('movies.index')}}">tillbaka till filmer</a><br>
-                    <a href="{{route('actors.edit', ['actor' => $actor->id])}}">ändra information om skådespelaren </a>
+                    <br><br>
+                    {{$actor->name}} har spelat i filmerna:
+                    <ul>
+                      @foreach($actor->movies as $movie)
+                      <li><a href="{{route('movies.show', ['movie'=>$movie->id])}}">{{$movie->title}}</li>
+                      @endforeach
+                    </ul>
+                    <a href="{{route('movies.index')}}" class="btn btn-success" role="Button">tillbaka till filmer</a><br><br>
+                    <a href="{{route('actors.edit', ['actor' => $actor->id])}}"class="btn btn-success" role="Button">ändra information om skådespelaren </a>
                 </div>
             </div>
         </div>

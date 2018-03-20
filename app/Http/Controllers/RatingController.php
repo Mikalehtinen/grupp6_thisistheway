@@ -19,12 +19,23 @@ class RatingController extends Controller
     {
       return view('movies/show', ['rating' => $rating]);
     }
+    public function create()
+    {
+      //refererar till create.blade.php, skickar det formuläret till store nedan.
+        return view('movies/show', ['rating' => $rating]);
+    }
     public function store(Request $request)
     {
-        $rating = $request->input('rating');
+
+        $rating_user = $request->input('user_id');
+        $rating_movie = $request->input('movie_id');
+        $rating_rate = $request->input('rating');
 
         $rating = new Rating();
-        $rating->rating = $rating;
+
+        $rating->user_id = $rating_user;
+        $rating->movie_id = $rating_movie;
+        $rating->rating = $rating_rate;
         $rating->save();
 
         return redirect()->route('movies.index');
