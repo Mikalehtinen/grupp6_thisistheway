@@ -25,8 +25,15 @@
         <input type="text" name="posterpicture" value="{{$movie->posterpicture}}" class="form-control" placeholder="posterpic"/>
           </div>
             <div class="form-group">
-          <input type="text" name="director_id" value="{{$movie->director_id}}" class="form-control" placeholder="director id"/>
-
+          <!-- <input type="text" name="director_id" value="{{$movie->director_id}}" class="form-control" placeholder="director id"/> -->
+          <label>director</label>
+          <select name="director_id" class="form-control">
+            <option value="">-</option>
+            @foreach($directors as $director)
+            <option value="{{$director->id}}">
+              {{$director->name}}
+            </option>
+            @endforeach
           <input type="submit" class="btn brn-primary" value="updatera"/>
         </div>
       </form>

@@ -87,7 +87,8 @@ class MovieController extends Controller
     public function edit(Movie $movie)
     {
 
-        return view('movies/edit' , ['movie' => $movie]);
+        // return view('movies/edit' , ['movie' => $movie]);
+        return view('movies/edit',  ['movie' => $movie],['directors' => Director::orderBy('name')->get()]);
     }
 
     /**
