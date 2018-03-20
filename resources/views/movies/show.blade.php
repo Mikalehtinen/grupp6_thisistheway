@@ -50,11 +50,12 @@
 						</table>
             <a href="#" class ="btn btn-success" role="Button">Add to library</a>
             <a href="{{route('movies.edit', ['movie' => $movie->id])}}" class="btn btn-info" role="Button">Edit Movie</a>
-						<a href="#" class="btn btn-info" role="Button">Add actor to movie</a>
+
             <a href="{{route('movies.index')}}" class ="btn btn-danger" role="Button">Tillbaka</a>
 					</div>
 				</div>
        @auth
+
        <p> betygsätt film: {{$movie->title}}</p>
        <form method="POST" action="{{route('ratings.store')}}">
        @csrf
@@ -71,7 +72,6 @@
 		 <div class="form-group">
 		 <input type="text" name="rating" class="form-control" placeholder="Rating 1-5" required/>
 		 <br>
-
           <input type="submit" class="btn brn-success" value="betygsätt"/>
            </div>
              </form>

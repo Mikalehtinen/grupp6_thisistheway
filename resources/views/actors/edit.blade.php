@@ -20,6 +20,8 @@ därav input type hidden.
   <div class="form-group">
   <input type="text" name="description"value="{{$actor->description}}" class="form-control" placeholder="desc"/>
 
+  
+
  <input type="submit" class="btn brn-primary" value="Updatera"/>
 
 </div>

@@ -15,8 +15,9 @@ class ActorController extends Controller
     public function index()
     {
       $actors = Actor::get();
-      return view('actors/index', ['actors' => $actors]);
+      return view('actors/index');
     }
+
     public function create()
     {
       //refererar till create.blade.php, skickar det formuläret till store nedan.
@@ -37,7 +38,7 @@ class ActorController extends Controller
 
     public function show(Actor $actor)
     {
-        return view('actors/show', ['actor' => $actor]);
+        return view('actors/show');
     }
 
     public function edit(Actor $actor)

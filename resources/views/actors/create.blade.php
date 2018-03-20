@@ -14,12 +14,16 @@
     </div>
     <div class="form-group">
     <input type="text" name="description"  class="form-control" placeholder="desc"/>
-
+    <label>Movie</label>
+    <select name="movie_id" class="form-control">
+      <option value="">-</option>
+      @foreach($movies as $movie)
+      <option value="{{$movie->id}}">
+        {{$movie->title}}
+      </option>
+      @endforeach
     <input type="submit" class="btn brn-primary" value="lägg till skådespelare"/>
       </div>
       </form>
-
-<p>du måste vara inloggad som administratör för att lägga till filmer. </p>
-
 
 @endsection

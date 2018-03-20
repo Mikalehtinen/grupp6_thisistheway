@@ -17,12 +17,15 @@
               </tr>
               <tr>
                 <th>Movies starred in</th>
-                <td>@foreach($actor->movies as $movie)<a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}} ,@endforeach</td>
+                <td>@foreach($actor->movies as $movie)<a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}} ,@endforeach </td>
+                
+                  </tr>
               </tr>
             </tbody>
           </table>
           <a href="{{route('actors.edit', ['actor' => $actor->id])}}" class ="btn btn-success" role="Button">Redigera</a>
-          <a href="{{route('actors.index')}}" class="btn btn-danger" role="Button">Tillbaka</a><br><br>
+          <a href="{{route('actors.index')}}" class="btn btn-danger" role="Button">Tillbaka</a>
+
         </div>
       </div>
     </div>
