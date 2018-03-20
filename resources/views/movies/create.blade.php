@@ -30,7 +30,6 @@
         </div>
       </form>
 
-<p>du måste vara inloggad som administratör för att lägga till filmer. </p>
 
 
 @endsection

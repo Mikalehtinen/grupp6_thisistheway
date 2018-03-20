@@ -32,7 +32,7 @@ Route::get('/movies/{movie}/edit', 'MovieController@edit')->name('movies.edit');
 Route::put('/movies/{movie}', 'MovieController@update')->name('movies.update');
 
 Route::get('/movies/{rating}', 'RatingController@index')->name('rating.index');
-Route::post('/movies', 'RatingController@store')->name('ratings.store');
+Route::post('/ratings', 'RatingController@store')->name('ratings.store');
 Route::get('/movies/show', 'RatingController@create')->name('rating.create');
 Route::get('/movies/{rating}', 'RatingController@show')->name('rating.show');
 

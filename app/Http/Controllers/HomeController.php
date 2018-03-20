@@ -33,11 +33,7 @@ class HomeController extends Controller
       $user = User::find($user->id);
 
       $user->ratings = $user->ratings()->avg('rating');
-
-      // $user->ratings = $user->ratings()->find('rating');
-      // $user->count = $user->ratings()->count('rating');
-      // $user->select = $user->ratings()->select('rating');
-      // $user->sum = $user->ratings()->sum('rating');
+      $user->count = $user->ratings()->count('rating');
 
       return view('home', ['user' => $user]);
     }

@@ -87,7 +87,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    русский IMDB
+                    привет
                 </div>
                 </div>
             </div>
