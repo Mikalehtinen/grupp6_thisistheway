@@ -87,7 +87,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                  <img class="card-img-top" src="https://fortunedotcom.files.wordpress.com/2014/09/451256444.jpg" alt="Card image cap" width="30%" height="30%">
+                  <br>
                     привет
+
                 </div>
                 </div>
             </div>
