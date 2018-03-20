@@ -24,12 +24,16 @@
         <input type="text" name="posterpicture" class="form-control" placeholder="Posterpicture"/>
           </div>
             <div class="form-group">
-          <input type="text" name="director_id" class="form-control" placeholder="director ID"/>
 
+              <label>director</label>
+              <select name="director_id" class="form-control">
+                <option value="">-</option>
+                @foreach($directors as $director)
+                <option value="{{$director->id}}">
+                  {{$director->name}}
+                </option>
+                @endforeach
           <input type="submit" class="btn brn-primary" value="Lägg till film"/>
         </div>
       </form>
-
-
-
 @endsection

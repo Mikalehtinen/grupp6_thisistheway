@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Movie;
 use App\Rating;
 use App\User;
+use App\Director;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -32,7 +33,8 @@ class MovieController extends Controller
     public function create()
     {
       //refererar till create.blade.php, skickar det formuläret till store nedan.
-        return view('movies/create');
+
+        return view('movies.create' , ['directors' => Director::orderBy('name')->get()]);
     }
 
     /**

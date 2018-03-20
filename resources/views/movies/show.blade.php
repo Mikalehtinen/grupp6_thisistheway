@@ -48,9 +48,9 @@
                 </tr>
 							</tbody>
 						</table>
-
             <a href="#" class ="btn btn-success" role="Button">Add to library</a>
             <a href="{{route('movies.edit', ['movie' => $movie->id])}}" class="btn btn-info" role="Button">Edit Movie</a>
+						<a href="#" class="btn btn-info" role="Button">Add actor to movie</a>
             <a href="{{route('movies.index')}}" class ="btn btn-danger" role="Button">Tillbaka</a>
 					</div>
 				</div>
@@ -78,7 +78,5 @@
         @else
           <strong>You have to be logged in in order to rate the movie</strong>
         @endif
-
-
 	</div>
 @endsection
