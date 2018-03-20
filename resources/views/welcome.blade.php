@@ -72,8 +72,9 @@
                         <a href="{{route('actors.index')}}">Skådespelare</a>
                         <a href="{{route('directors.index')}}">Regisörer</a>
                         <a href="{{ route('movies.index')}}">Filmer</a>
-                        <a href="{{ url('/home') }}">Dashboard</a>
                         <a href="{{ route('movies.index')}}">Filmer</a>
+                        <a href="#">Genres</a>
+                        <a href="{{ url('/home') }}">Dashboard</a>
                     @else
                         <a href="{{route('actors.index')}}">Skådespelare</a>
                         <a href="{{route('directors.index')}}">Regisörer</a>
@@ -86,14 +87,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Johan och Mikas IMDB clone
+                    русский IMDB
                 </div>
-                <!-- <div class="links">
-                  <div class="title m-b-md">
-                    <a href="{{route('movies.index')}}">bläddra bland filmer</a>
-                    </div> -->
-
-
                 </div>
             </div>
         </div>

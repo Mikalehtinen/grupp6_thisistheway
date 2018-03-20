@@ -13,7 +13,8 @@ class RatingController extends Controller
     public function index()
     {
       $rating = Rating::get();
-      return view('movies/index', ['ratings' => $ratings]);
+      return view('movies/index', ['ratings' => Rating::orderBy('rating')->get()]);
+
     }
     public function show(Rating $rating)
     {

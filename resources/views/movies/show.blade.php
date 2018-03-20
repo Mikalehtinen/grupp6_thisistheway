@@ -54,8 +54,6 @@
             <a href="{{route('movies.index')}}" class ="btn btn-danger" role="Button">Tillbaka</a>
 					</div>
 				</div>
-
-
        @auth
        <p> betygsätt film: {{$movie->title}}</p>
        <form method="POST" action="{{route('ratings.store')}}">

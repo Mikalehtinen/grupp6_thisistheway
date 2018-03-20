@@ -14,12 +14,14 @@
                         </div>
                     @endif
                      this is the user dashboard for {{Auth::user()->name}}<br>
-
                      <br>
-                     You have been giving rating to <strong>{{Auth::user()->rating->count()}}</strong> diffrent movies.<br>
+                     You have been giving rating to <strong>{{Auth::user()->ratings->count()}}</strong> diffrent movies.<br>
                      movies you've rated:<br>
-                     {{Auth::user()->rating}}
-
+                     <ul>
+                       @foreach(Auth::user()->ratings as $rating)
+                       <li>{{$rating->movie->title}}(rating{{$rating->rating}})</li>
+                       @endforeach
+                     </ul>
                      <br>
                 </div>
             </div>
