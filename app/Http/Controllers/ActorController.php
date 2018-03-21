@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Actor;
 use App\Movie;
 use Illuminate\Http\Request;
@@ -19,10 +20,10 @@ class ActorController extends Controller
 
     }
 
-    public function create()
+    public function create(Movie $movie)
     {
       //refererar till create.blade.php, skickar det formuläret till store nedan.
-        return view('actors/create');
+        return view('actors.create', ['movie' => $movie, 'actors' => Actor::Get()]);
     }
 
     public function store(Request $request)
@@ -34,7 +35,12 @@ class ActorController extends Controller
         $actor->name = $actor_name;
         $actor->description = $actor_description;
         $actor->save();
-        return redirect()->route('actors.index');
+
+        $actor = $actor->id;
+        // $movie->actors()->attach($actor);
+        Session::flash('flash_message', 'actor added!');
+
+        return redirect()->route('movies.show', ['id' => $request->input('movie_id')]);
     }
 
     public function show(Actor $actor)

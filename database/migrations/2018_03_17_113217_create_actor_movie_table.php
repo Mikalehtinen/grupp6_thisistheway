@@ -19,6 +19,10 @@ class CreateActorMovieTable extends Migration
             $table->integer('actor_id')->unsigned();
             $table->timestamps();
         });
+        Schema::table('actor_movie', function (Blueprint $table) {
+          $table->foreign('actor_id')->references('id')->on('actors');
+          $table->foreign('movie_id')->references('id')->on('movies');
+        });
     }
 
     /**
