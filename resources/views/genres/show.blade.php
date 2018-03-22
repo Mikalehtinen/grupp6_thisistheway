@@ -7,6 +7,7 @@
     <div class="card-header bg-dark text-light">
       <h5 class="card-title">{{$genre->name}}</h5>
       <a href="{{route('genres.edit', ['genre' => $genre->id])}}" class="btn btn-success" style="float:right">Edit Genre</a>
+      <a href="{{route('genres.edit', ['genre' => $genre->id])}}" class="btn btn-success" style="float:right">add to movie</a>
     </div>
     <div class="card-body">
       <div class="row">

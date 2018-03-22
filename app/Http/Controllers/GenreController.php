@@ -19,18 +19,25 @@ class GenreController extends Controller
     }
     public function create(Movie $movie)
     {
+      //när vi skapar en genre så väljer vi en film. 
       return view('genres.create', ['movie' => $movie, 'movies' => Movie::Get()]);
+      Genre::where(’name’, $request->input(’name’))->exists();
       // return view('genres/create');
+     
     }
     public function store(Request $request)
     {
+      
       $genre_name = $request->input('name');
       $genre = new Genre();
-
+      try{
         $genre->name = $genre_name;
         $genre->save();
         $genre->movies()->attach($request->input('movies'));
         return redirect()->route('genres.index');
+    }catch(\exception $e){
+      return redirect()->route('genres.index');
+    }
       }
    
 

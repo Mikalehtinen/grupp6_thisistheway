@@ -10,13 +10,13 @@
 @csrf
 <input type="hidden" name="_method" value="POST"/>
   <div class="form-group">
-  <input type="text" name="name" class="form-control" placeholder="Namn"/>
+  <input type="text" name="name" class="form-control" placeholder="Namn"required/>
     </div>
     <div class="form-group">
-    <input type="text" name="description"  class="form-control" placeholder="desc"/>
+    <input type="text" name="description"  class="form-control" placeholder="desc"required/>
     
     <label>Movie</label>
-              <select name="movies" class="form-control">
+              <select name="movies" class="form-control" required>
                 <option value="">-</option>
                 @foreach($movies as $movie)
                 <option value="{{$movie->id}}">

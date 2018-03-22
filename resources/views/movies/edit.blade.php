@@ -34,11 +34,23 @@
               {{$director->name}}
             </option>
             @endforeach
+          </select>
+          </div>
+          <div class="form-group">
+             <label>Genres</label>
+          <select multiple name="genres[]" class="form-control">
+            <option value="">-</option>
+            @foreach($genres as $genre)
+            <option value="{{$genre->id}}">
+              {{$genre->name}}
+            </option>
+            @endforeach
+          </select>
           <input type="submit" class="btn brn-primary" value="updatera"/>
         </div>
       </form>
 
-<p>du måste vara inloggad som administratör för att lägga till filmer. </p>
+
 
 
 @endsection

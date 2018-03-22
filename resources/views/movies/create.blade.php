@@ -33,6 +33,19 @@
                   {{$director->name}}
                 </option>
                 @endforeach
+                </select>
+
+                <label>Genres</label>
+              <select multiple name="genre_id" class="form-control">
+                <option value="">-</option>
+                @foreach($genres as $genre)
+                <option value="{{$genre->id}}" selected>
+                  {{$genre->name}}
+                </option>
+                @endforeach
+                </select>
+
+
           <input type="submit" class="btn brn-primary" value="Lägg till film"/>
         </div>
       </form>

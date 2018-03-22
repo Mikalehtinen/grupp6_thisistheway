@@ -6,6 +6,7 @@ use App\Movie;
 use App\Rating;
 use App\User;
 use App\Director;
+use App\Genre;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -33,8 +34,10 @@ class MovieController extends Controller
     public function create()
     {
       //refererar till create.blade.php, skickar det formuläret till store nedan.
-
-        return view('movies.create' , ['directors' => Director::orderBy('name')->get()]);
+        //när vi skapar film så kommer det en dropdown på directors och en droipdown på genres. 
+        return view('movies.create' , ['directors' => Director::orderBy('name')->get(), 
+                                            'genres' => Genre::orderBy('name')->get()]);
+        
     }
 
     /**
@@ -52,6 +55,7 @@ class MovieController extends Controller
         $movie_posterpicture = $request->input('posterpicture');
         $movie_directorid = $request->input('director_id');
 
+        
         $movie = new Movie();
         $movie->title = $movie_title;
         $movie->desctiption = $movie_desctiption;
@@ -88,7 +92,7 @@ class MovieController extends Controller
     {
 
         // return view('movies/edit' , ['movie' => $movie]);
-        return view('movies/edit',  ['movie' => $movie],['directors' => Director::orderBy('name')->get()]);
+        return view('movies/edit',  ['movie' => $movie],['directors' => Director::orderBy('name')->get(), 'genres' => Genre::orderBy('name')->get()]);
     }
 
     /**
@@ -100,7 +104,7 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
-
+       
       $movie_title = $request->input('title');
       $movie_desctiption = $request->input('desctiption');
       $movie_runtime = $request->input('runtime');
@@ -114,9 +118,15 @@ class MovieController extends Controller
       $movie->releasedate = $movie_releasedate;
       $movie->posterpicture = $movie_posterpicture;
       $movie->director_id = $movie_directorid;
-      $movie->save();
+     
+       $movie->save();
+       $movie->genres()->sync($request->input('genres'));
+       
 
-      return redirect()->route('movies.show', ['movie' => $movie->id]);
+       $movie = $movie->id;
+      
+
+      return redirect()->route('movies.show', ['movie' => $movie]);
 
     }
 
