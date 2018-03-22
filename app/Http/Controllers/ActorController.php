@@ -62,7 +62,8 @@ class ActorController extends Controller
 
     public function edit(Actor $actor)
     {
-      return view('actors/edit', ['actor' => $actor]);
+      //  return view('actors.create', ['movie' => $movie, 'movies' => Movie::Get()]);
+      return view('actors/edit', ['actor' => $actor],['movies' => Movie::orderBy('title')->get()]);
     }
 
     public function update(Request $request, Actor $actor)
@@ -73,6 +74,7 @@ class ActorController extends Controller
       $actor->name = $actor_name;
       $actor->description = $actor_description;
       $actor->save();
+      $actor->movies()->attach($request->input('movies'));
 
       return redirect()->route('actors.show', ['actor' => $actor->id]);
     }

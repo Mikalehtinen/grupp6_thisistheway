@@ -17,10 +17,7 @@
               </tr>
               <tr>
                 <th>Movies starred in</th>
-                <td>@foreach($actor->movies as $movie)
-                <a href="{{route('movies.show',
-                 ['movie' => $movie->id])}}">
-                 {{$movie->title}} ,
+                <td>@foreach($actor->movies as $movie)<a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}} ,
                  @endforeach </td>
                 
                   </tr>

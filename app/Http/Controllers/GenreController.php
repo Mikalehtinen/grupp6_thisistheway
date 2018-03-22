@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Genre;
+use App\Movie;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -16,24 +17,22 @@ class GenreController extends Controller
       $genres = Genre::get();
       return view('genres/index', ['genres' => Genre::orderBy('name')->get()]);
     }
-    public function create()
+    public function create(Movie $movie)
     {
-      return view('genres/create');
+      return view('genres.create', ['movie' => $movie, 'movies' => Movie::Get()]);
+      // return view('genres/create');
     }
     public function store(Request $request)
     {
       $genre_name = $request->input('name');
-
       $genre = new Genre();
-      try{
+
         $genre->name = $genre_name;
         $genre->save();
+        $genre->movies()->attach($request->input('movies'));
         return redirect()->route('genres.index');
-          }catch(\exception $e){
-             report ($e);
-            return redirect()->route('genres.index');
       }
-    }
+   
 
     public function show(Genre $genre)
     {
@@ -41,13 +40,15 @@ class GenreController extends Controller
     }
     public function edit(Genre $genre)
     {
-      return view('genres/edit', ['genre' => $genre]);
+      return view('genres/edit', ['genre' => $genre],['movies' => Movie::orderBy('title')->get()]);
+      // return view('genres/edit', ['genre' => $genre]);
     }
     public function update(Request $request, Genre $genre)
     {
       $genre_name = $request->input('name');
       $genre->name = $genre_name;
       $genre->save();
+      // $genre->movies()->attach($request->input('movies'));
       return redirect()->route('genres.show', ['genre' => $genre->id]);
     }
 

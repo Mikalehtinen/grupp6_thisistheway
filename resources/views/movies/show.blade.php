@@ -16,7 +16,12 @@
 							<tbody>
 								<tr>
 									<th>Release date</th>
-									<td>{{$movie->releasedate}}</td>
+									<td>@if ($movie->releasedate < Carbon\Carbon::now())
+       							 {{$movie->releasedate}}
+        							@else
+        								Under production, releasedate {{$movie->releasedate}}
+        							@endif
+        								<br></td>
 								</tr>
 								<tr>
 									<th>Genre</th>
@@ -51,7 +56,8 @@
             <a href="#" class ="btn btn-success" role="Button">Add to library</a>
 						<a href="{{route('actors.create')}}" class="btn btn-primary" role="Button">Add Actor </a>
             <a href="{{route('movies.edit', ['movie' => $movie->id])}}" class="btn btn-info" role="Button">Edit Movie</a>
-            <a href="{{route('movies.index')}}" class ="btn btn-danger" role="Button">Tillbaka</a>
+            <a href="{{route('genres.edit', ['genre' => $genre->id])}}" class="btn btn-info" role="Button">Edit Genre</a>
+						<a href="{{route('movies.index')}}" class ="btn btn-danger" role="Button">Tillbaka</a>
 					</div>
 				</div>
        @auth

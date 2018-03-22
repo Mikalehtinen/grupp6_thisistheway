@@ -16,7 +16,12 @@
 							<tbody>
 								<tr>
 									<th>Release date</th>
-									<td>{{$movie->releasedate}}</td>
+									<td>@if ($movie->releasedate < Carbon\Carbon::now())
+        							{{$movie->releasedate}}
+        								@else
+        									Under production, releasedate {{$movie->releasedate}}
+       						 @endif
+        						<br></td>
 								</tr>
 								<tr>
                   @foreach($movie->genres as $genre)
