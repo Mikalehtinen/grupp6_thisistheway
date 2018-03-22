@@ -5,15 +5,7 @@ namespace App\Http\Controllers;
 use Session;
 use App\Actor;
 use App\Movie;
-
-
-
-// USE APP ACTOR_MOVIE?!
-
-
-
-
-
+use Exception;
 use Illuminate\Http\Request;
 
 class ActorController extends Controller
@@ -42,17 +34,26 @@ class ActorController extends Controller
         // $actor_movie = $request->input('movies');
 
         $actor = new Actor();
+
+        // try{
+
+        
         $actor->name = $actor_name;
         $actor->description = $actor_description;
         // $actor->movies = $actor_movie; 
         $actor->save();
+        $actor->movies()->attach($request->input('movies'));
 
         $actor = $actor->id;
         // $movie->actors()->attach($actor);
         Session::flash('flash_message', 'actor added!');
 
         return redirect()->route('movies.show', ['id' => $request->input('movie_id')]);
-    }
+    // }catch(\exception $e){
+    //   report($e);
+    //   return redirect()->route('movies.show', ['id' => $request->input('movie_id')]);
+    // }
+      }
 
     public function show(Actor $actor)
     {

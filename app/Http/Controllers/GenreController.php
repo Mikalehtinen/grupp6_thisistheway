@@ -25,9 +25,14 @@ class GenreController extends Controller
       $genre_name = $request->input('name');
 
       $genre = new Genre();
-      $genre->name = $genre_name;
-      $genre->save();
-      return redirect()->route('genres.index');
+      try{
+        $genre->name = $genre_name;
+        $genre->save();
+        return redirect()->route('genres.index');
+          }catch(\exception $e){
+             report ($e);
+            return redirect()->route('genres.index');
+      }
     }
 
     public function show(Genre $genre)

@@ -44,7 +44,6 @@ class RatingController extends Controller
 
       } catch (\exception $e) {
         report($e);
-        // return false;
         return redirect()->route('movies.index');
 
       }
