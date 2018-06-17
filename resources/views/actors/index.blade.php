@@ -4,7 +4,9 @@
 
 <div class="card-deck">
   <div class="container">
+    @auth('admin')
   <a href="{{route('actors.create')}}" class="btn btn-primary" role="Button">Add Actor </a>
+  @endauth
   </div>
 @foreach($actors as $actor)
 <div class="container">
@@ -27,7 +29,9 @@
               </tr>
             </tbody>
           </table>
+          @auth('admin')
           <a href="{{route('actors.edit', ['actor' => $actor->id])}}" class ="btn btn-success" role="Button">Redigera</a>
+          @endauth
         </div>
       </div>
     </div>

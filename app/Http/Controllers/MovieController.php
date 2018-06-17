@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Movie;
 use App\Rating;
+use App\Image;
 use App\User;
 use App\Director;
 use Illuminate\Http\Request;
@@ -59,7 +60,8 @@ class MovieController extends Controller
         $movie->releasedate = $movie_releasedate;
         $movie->posterpicture = $movie_posterpicture;
         $movie->director_id = $movie_directorid;
-        $movie->save();
+
+          $movie->save();
 
         return redirect()->route('movies.index');
     }
@@ -114,12 +116,13 @@ class MovieController extends Controller
       $movie->releasedate = $movie_releasedate;
       $movie->posterpicture = $movie_posterpicture;
       $movie->director_id = $movie_directorid;
+
       $movie->save();
 
       return redirect()->route('movies.show', ['movie' => $movie->id]);
 
-    }
-
+    } 
+    
     /**
      * Remove the specified resource from storage.
      *

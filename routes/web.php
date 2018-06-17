@@ -51,6 +51,7 @@ Route::get('/actors/{actor}', 'ActorController@show')->name('actors.show');
 Route::get('/actors/{actor}/edit', 'ActorController@edit')->name('actors.edit');
 Route::put('/actors/{actor}', 'ActorController@update')->name('actors.update');
 
+
 Route::get('/directors', 'DirectorController@index')->name('directors.index');
 Route::post('/directors', 'DirectorController@store')->name('directors.store');
 Route::get('/directors/create', 'DirectorController@create')->name('directors.create');
@@ -58,6 +59,10 @@ Route::get('/directors/{director}', 'DirectorController@show')->name('directors.
 Route::get('/directors/{director}/edit', 'DirectorController@edit')->name('directors.edit');
 Route::put('/directors/{director}', 'DirectorController@update')->name('directors.update');
 
+Route::get('/Library/create/{movie}', 'LibraryController@create')->name('Library.create');
+Route::post('/Library/store/{movie}', 'LibraryController@store')->name('Library.store');
+Route::get('/Library/{Library}/edit', 'LibraryController@edit')->name('Library.edit');
+Route::post('/Library/{Library}', 'LibraryController@update')->name('Library.update');
 
 //gör en grupp med prefixet admin, så slipper man skriva /admin/login hela tiden.
 Route::prefix('admin')->group(function(){

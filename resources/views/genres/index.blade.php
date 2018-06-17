@@ -9,7 +9,9 @@
     <div class="card">
       <div class="card-header bg-dark text-light">
         <h5 class="card-title">Genres</h5>
+        @auth('admin')
         <a href="{{route('genres.create')}}" class="btn btn-primary" role="Button" style="float:right"> Create genre </a>
+        @endauth
       </div>
       <div class="card-body">
         <div class="row">

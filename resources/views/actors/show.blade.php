@@ -24,10 +24,13 @@
               </tr>
             </tbody>
           </table>
+          @auth('admin')
           <a href="{{route('actors.edit', ['actor' => $actor->id])}}" class ="btn btn-success" role="Button">Redigera</a>
+          <hr>
+          @endauth
           <a href="{{route('actors.index')}}" class="btn btn-danger" role="Button">Tillbaka</a>
 
-        </div>
+        </div> 
       </div>
     </div>
   </div>

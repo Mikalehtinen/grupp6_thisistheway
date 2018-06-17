@@ -22,5 +22,9 @@ class Movie extends Model
   {
     return $this->belongsTo('App\Director');
   }
+  public function image() {
+
+    return $this->hasMany('App\Image');
+  }
 }
 ?>

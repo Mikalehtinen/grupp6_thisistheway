@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
+  @auth('admin')
 <a href="{{route('directors.create')}}" class="btn btn-primary" role="Button">Add director </a>
+@endauth
 </div>
   @foreach($directors as $director)
   <div class="container">
@@ -25,7 +27,9 @@
                 </tr>
               </tbody>
             </table>
+            @auth('admin')
             <a href="{{route('directors.edit', ['director' => $director->id])}}" class ="btn btn-success" role="Button">Redigera</a>
+            @endauth
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ class CreateMoviesTable extends Migration
             $table->string('runtime');
             $table->string('releasedate');
             $table->integer('director_id')->unsigned();
-            $table->text('posterpicture');
+            $table->string('posterpicture');
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Edit product: {{$actor->name}}</h1>
+<h1>Edit: {{$actor->name}}</h1>
 
 <!-- postformulär -->
 

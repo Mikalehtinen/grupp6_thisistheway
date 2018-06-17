@@ -9,7 +9,8 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-4">
-						<img class="card-img-top" src="{{$movie->posterpicture}}" alt="Card image cap">
+						<img class="card-img-top" src="{{$movie->posterpicture}}" alt="Card image cap"> 
+					
 					</div>
 					<div class="col-md-8">
 						<table class="table table-striped">
@@ -50,17 +51,24 @@
                 <tr>
                   <th>Actors</th>
                   <td>@foreach($movie->actors as $actor)<a href="{{route('actors.show', ['actor'=>$actor->id])}}">{{$actor->name}}<br> </a>@endforeach</td>
-                </tr>
+								</tr>
+								
 							</tbody>
 						</table>
-            <a href="#" class ="btn btn-success" role="Button">Add to library</a>
-						<a href="{{route('actors.create')}}" class="btn btn-primary" role="Button">Add Actor </a>
-            <a href="{{route('movies.edit', ['movie' => $movie->id])}}" class="btn btn-info" role="Button">Edit Movie</a>
-            <a href="{{route('genres.edit', ['genre' => $genre->id])}}" class="btn btn-info" role="Button">Edit Genre</a>
+						@auth
+						<a href="{{route('Library.create', ['movie'=>$movie->id])}}" class ="btn btn-success" role="Button">Add to library</a>@endauth
+						@auth('admin')
+
+						<a href="{{route('movies.edit', ['movie' => $movie->id])}}" class="btn btn-info" role="Button">Edit Movie</a>
+						
+						@endauth
 						<a href="{{route('movies.index')}}" class ="btn btn-danger" role="Button">Tillbaka</a>
+					{{-- <a class="btn btn-sm brn primary float-right" href="{{ route('Library.create', ['movie'=>$movie->id]) }}">Lägg till i bibliotek</a> --}}
+					
+					
 					</div>
 				</div>
-       @auth
+				@auth
 
        <p> betygsätt film: {{$movie->title}}</p>
        <form method="POST" action="{{route('ratings.store')}}">
@@ -75,9 +83,16 @@
 		 <input type="hidden" name="movie_id" value="{{$movie->id}}" class="form-control"/>
 		 </div>
 
-		 <div class="form-group">
-		 <input type="text" name="rating" class="form-control" placeholder="Rating 1-5" required/>
-		 <br>
+		    <div class="form-group">
+        <select class="form-control" name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+						<option value="4">4</option>
+						<option value="4">5</option>
+        </select>
+    </div>
+
           <input type="submit" class="btn brn-success" value="betygsätt"/>
            </div>
              </form>

@@ -6,7 +6,9 @@
   <div class="card">
     <div class="card-header bg-dark text-light">
       <h5 class="card-title">{{$genre->name}}</h5>
+      @auth('admin')
       <a href="{{route('genres.edit', ['genre' => $genre->id])}}" class="btn btn-success" style="float:right">Edit Genre</a>
+      @endauth
     </div>
     <div class="card-body">
       <div class="row">

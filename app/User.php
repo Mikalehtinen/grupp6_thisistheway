@@ -32,4 +32,9 @@ class User extends Authenticatable
       return $this->hasMany('App\Rating');
     }
 
+        
+    public function Library() {
+      return $this->hasMany('App\Library')->orderBy('format');
+    }
+
 }

@@ -20,8 +20,8 @@
         </div>
       </div>
     </div>
-    <a href="{{route('movies.index')}}" class="btn btn-danger" role="Button">Back</a>
   </div>
+    <a href="{{route('movies.index')}}" class="btn btn-danger" role="Button">Back</a>
 </div>
 
 @endsection

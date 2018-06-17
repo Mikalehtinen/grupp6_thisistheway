@@ -12,23 +12,41 @@
         <div class="col-md-8">
           <table class="table table-striped">
             <tbody>
-              <tr>
-                <th>Movies you've rated </th>
-                <td>{{Auth::user()->ratings->count()}}</td>
-              </tr>
                 <tr>
                   <th>Movies you've rated</th>
                   <td><ul>
-                    @foreach(Auth::user()->ratings as $rating)<li>{{$rating->movie->title}} (rating {{$rating->rating}} /5)</li>
+                    @foreach(Auth::user()->ratings as $rating)
+                  <a href="{{route('movies.show', ['id' => $rating->movie->id] )}}"><li>{{$rating->movie->title}}</a> ({{$rating->rating}} /5)</li>
+   
                     @endforeach
-                  </ul></td>
+                  </td></ul>
                 </tr>
-            </tbody>
-          </table>
+                <th>Your library:</th>
+                <tbody>
+                  @foreach(Auth::user()->Library as $Library)
+                  <td>
+                    <a href="{{route('movies.show', ['id' => $Library->movie->id] )}}"><li>{{$Library->movie->title}}</a></li>
+                  </td>
+                    <td>
+                      Format:{{$Library->format}} 
+                    </td>
+                    <td>
+                      <a href="{{route('Library.edit', ['Library' => $Library->id])}}" class="btn btn-sm btn-primary float-right">Ändra</a>
+                      
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody> 
+                </td>
+              </tr>
+
+           <a href="{{route('movies.index')}}" class="btn btn-danger" role="Button">Back</a>
+      
         </div>
       </div>
+      
     </div>
-    <a href="{{route('movies.index')}}" class="btn btn-danger" role="Button">Back</a>
+    
   </div>
 
 @endsection

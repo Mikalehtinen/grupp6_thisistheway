@@ -34,10 +34,20 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            <a class="nav-link" href="{{route('actors.index')}}">Skådespelare</a>
+                            <a class="nav-link" href="{{route('directors.index')}}">Regisörer</a>
+                            <a class="nav-link" href="{{ route('movies.index')}}">Filmer</a>
+                            <a class="nav-link" href="{{ route('genres.index')}}">Genres</a>
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
 
                         @else
+
+                        <a class="nav-link" href="{{route('actors.index')}}">Skådespelare</a>
+                        <a class="nav-link" href="{{route('directors.index')}}">Regisörer</a>
+                        <a class="nav-link" href="{{ route('movies.index')}}">Filmer</a>
+                        <a class="nav-link" href="{{ route('genres.index')}}">Genres</a>
+
                         <li> <a class="nav-link" href="{{ route('movies.index')}}">Filmer</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
